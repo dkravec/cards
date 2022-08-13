@@ -7,6 +7,21 @@ Created by Daniel Kravec, on August 12th, 2022.
 - Uses cardimage api (untested)
 - created cardschema and ownedcardsschema 
 
+### 1.0 (2.2022.08.13)
+- created private and public user schemas
+- added mongo connection
+- added more routes to api 
+    - /auth/newUser
+        - client can create a new user, with username, password, description.
+    - /auth/login
+        - client can login, and will send token to frontend for later reconnection.
+    - /auth/checkToken
+        - makes sure frontend can connect with the token and userid it has.
+    - /get/search <- /search
+- added /auth/checktoken 
+    - used for /atuh/checkToken
+    - will be used later for additional features with other routes
+
 ## ideas
 
 pro set 1990 #400 hockey

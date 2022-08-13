@@ -6,6 +6,14 @@ const mongoose = require('mongoose');
 const requests = require('./requests');
 require('dotenv').config();
 
+const mongoURL = process.env.MONGO_URL;
+
+mongoose.connect(mongoURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false 
+});
+
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use('/requests', requests)
