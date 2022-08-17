@@ -22,6 +22,12 @@ Created by Daniel Kravec, on August 12th, 2022.
     - used for /atuh/checkToken
     - will be used later for additional features with other routes
 
+### 1.0 (3.2022.08.17)
+- added indexes to collection-cards-schema
+    - basic card information (and what it is in the database)
+- created saveCard Function, which will import data and put it into the database.
+
+
 ## ideas
 
 pro set 1990 #400 hockey
