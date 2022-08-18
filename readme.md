@@ -27,6 +27,28 @@ Created by Daniel Kravec, on August 12th, 2022.
     - basic card information (and what it is in the database)
 - created saveCard Function, which will import data and put it into the database.
 
+### 1.0 (4.2022.08.18)
+- added a route for css. (and added to html)
+    - added html, body and then p colours.
+- added a proper title to html.
+- added defer to script loading.
+- html/script.js
+    - Updated putDefaults().
+        - added a select form to ele, which will let you select a currency.
+        - makes sure your default currency is in the list, if not itll keep USD.
+    - runs putDefaults() at top of script.
+    - added firstRunDefaults().
+        - saves USD as default currency.
+    - added selectNewCurrency().
+        - saves new currency to localstorage.
+- /get/search.
+    - now takes in userinput.
+    - if no searchterm, it returns.
+    - runs saveMassiveCollection().
+- moved /utils/auth/checktoken/card/saveCard -> /utils/card/saveCard.
+    - now also looks for the same card (if it was already added to the database).
+- added /utils/card/saveMassiveCollection.
+    - it will run after a search, and save every single card inside the database.
 
 ## ideas
 

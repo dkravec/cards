@@ -37,5 +37,8 @@ app.get('/', (req, res) => {
 app.get('/script.js', (req, res) => {
     res.sendFile(__dirname + '/html/script.js');
 });
+app.get('/style.css', (req, res) => {
+    res.sendFile(__dirname + '/html/style.css');
+});
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}!`));

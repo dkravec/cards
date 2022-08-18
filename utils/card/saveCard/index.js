@@ -1,7 +1,12 @@
-const CardsSchema = require('../../../../../schemas/CardsSchema');
+const CardsSchema = require('../../../schemas/CardsSchema');
 const { v4: uuidv4 } = require('uuid');
 
 async function saveCard(data) {
+    if (data.id) {
+        const card = await CardsSchema.findOne({ id: data.id });
+        if (card) return { "success" : false, "error" : "Card already exists", "cardData" : card };
+    };
+
     const cardID = uuidv4();
 
     await CardsSchema.findOneAndUpdate({
@@ -24,7 +29,7 @@ async function saveCard(data) {
         upsert: true,
     });
 
-    return cardID;
+    return { "success" : true, "error" : null, "cardData" : await CardsSchema.findOne({ id: data.id })};
 }
 
-module.exports = {saveCard};
+module.exports = { saveCard };
