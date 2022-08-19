@@ -22,7 +22,7 @@ const CardsSchema = mongoose.Schema({
     images: [images],
 
 
-    card_number: reqNum, // api: onCardCode
+    card_number: reqString, // api: onCardCode
     player_name: reqString, // api: firstname
     series_name: reqString, // api: set
     publisher_name: reqString, // api: publisher

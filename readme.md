@@ -50,6 +50,26 @@ Created by Daniel Kravec, on August 12th, 2022.
 - added /utils/card/saveMassiveCollection.
     - it will run after a search, and save every single card inside the database.
 
+### 1.0 (5.2022.08.19)
+- html/.
+    - Changed route it collects for search.
+    - created addResults() and cardEle().
+        - takes input from api, and creates an element for html.
+    - added more styling to html.
+- /get/search.
+    - makes body a string before sending request.
+    - checks if pagenumber inputed was a page number.
+- cardsSchema card_number is now a string, not a number.
+- adds /utils/card/saveCard saves the timestamp the card was added to the database.
+    - checks if the card was saved, then sends a success message.
+- /utils/card/saveMassiveCollection now pushes card to array.
+
+
+
+## next update
+- add search terms to database, with page number and cards
+- if search was already found, then check if it was within the last 30 days, if not, then resend the request.
+
 ## ideas
 
 pro set 1990 #400 hockey

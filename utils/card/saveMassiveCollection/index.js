@@ -7,8 +7,9 @@ async function saveMassiveCollection(searchResult) {
     const cards = [];
 
     for (let i = 0; i < searchResult.data.length; i++) {
-        await saveCard(data[i]);
-    }
+        const card = await saveCard(searchResult.data[i]);
+        cards.push(card);
+    };
 
     return cards;
 }

@@ -8,22 +8,28 @@ router.get('/', async (req, res) => {
     const { page, limit, currency, searchTerm } = req.query;
     if (!searchTerm) return res.status(400).send({"error": "Search term is required"});
 
-    const pageNumber = page || 1;
+    var pageNumber = 1;
+    if (page!=Number) pageNumber = parseInt( page );
+    else pageNumber = page;
+
     const limitNumber = limit || 28;
     const currencyCode = currency || "USD";
 
     const getData = await fetch("https://api.priceguide.cards/v2/elastic-search/search", {
-        // "body": "{\"search_term\":\"upper deck\",\"page\":1,\"limit\":28,\"currency\":\"USD\",\"sort_dict\":{\"sort_value\":\"count\",\"sort_by\":\"desc\"}}",
-        "body": {
+        "body": JSON.stringify({
+            // "search_term": "upper deck", 
+            // "page":1,
+            // "limit":28,
+            // "currency":"USD",
             "search_term": searchTerm,
             "page": pageNumber,
             "limit": limitNumber,
             "currency": currencyCode,
-            "sort_dict": {
-                "sort_value": "count",
-                "sort_by": "desc"
+            "sort_dict":{
+                "sort_value":"count",
+                "sort_by":"desc"
             }
-        },
+        }),
         "cache": "default",
         "credentials": "include",
         "headers": {
