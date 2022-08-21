@@ -64,11 +64,17 @@ Created by Daniel Kravec, on August 12th, 2022.
     - checks if the card was saved, then sends a success message.
 - /utils/card/saveMassiveCollection now pushes card to array.
 
-
+### 1.0 (6.2022.08.20)
+- added SearchSchema, which will save your search, and check if it was recently searched.
+- created findCard function, just finds a card that was already inputed. (by database _id, make an option to let you search by API id)
+- /utils/card/saveMassiveCollection
+    - added SearchSchema lookup (will move, to get before api call)
+    - saves results to SearchSchema
 
 ## next update
 - add search terms to database, with page number and cards
 - if search was already found, then check if it was within the last 30 days, if not, then resend the request.
+- make sure if theres no results, it doesnt crash.
 
 ## ideas
 

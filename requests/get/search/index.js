@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
     });
 
     const data = await getData.json();
-    const newData = await saveMassiveCollection(data);
+    const newData = await saveMassiveCollection(data, searchTerm);
     return res.status(200).send(newData);
 });
 
