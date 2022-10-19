@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { saveMassiveCollection } = require('../../../utils/card/saveMassiveCollection');
-
+const { findSearchTerm } = require('../../../utils/search/findSearchTerm')
 const currencies = "USD EUR JPY BGN CZK DKK GBP HUF PLN RON SEK CHF NOK HRK RUB TRY AUD BRL CAD CNY HKD IDR ILS INR KRW MXN MYR NZD PHP SGD THB ZAR ISK";
 const currenciesArray = currencies.split(" ");
 
@@ -11,6 +11,10 @@ router.get('/', async (req, res) => {
     var pageNumber = 1;
     if (page!=Number) pageNumber = parseInt( page );
     else pageNumber = page;
+
+    const didAlreadySearch = await findSearchTerm({ searchTerm, page: pageNumber });
+    console.log(didAlreadySearch)
+    if (didAlreadySearch.found == true) return res.status(200).send(didAlreadySearch.cards);
 
     const limitNumber = limit || 28;
     const currencyCode = currency || "USD";

@@ -8,15 +8,15 @@ async function saveMassiveCollection(searchResult, searchTerm) {
     
     const cards = [];
 
-    const searchResultEarlier = await SearchSchema.findOne({ _id: searchTerm });
-    if (searchResultEarlier && searchResultEarlier.cards) {
-        for (const cardID of searchResultEarlier.cards) {
-            const card = await findCard(cardID);
-            cards.push(card);
-        };
+    // const searchResultEarlier = await SearchSchema.findOne({ _id: searchTerm });
+    // if (searchResultEarlier && searchResultEarlier.cards) {
+    //     for (const cardID of searchResultEarlier.cards) {
+    //         const card = await findCard(cardID);
+    //         cards.push(card);
+    //     };
 
-        return cards
-    };
+    //     return cards
+    // };
 
     await SearchSchema.findOneAndUpdate(
         { _id: searchTerm },

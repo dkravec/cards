@@ -71,6 +71,12 @@ Created by Daniel Kravec, on August 12th, 2022.
     - added SearchSchema lookup (will move, to get before api call)
     - saves results to SearchSchema
 
+### 1.0 (7.2022.10.18)
+- when you search, it now saves the cards properly inside the SearchSchema.
+- searchschema.cards now holds an object of ids, instead of just being the ids itself.
+- added findSearchTerm function. now will run before fetching. \ makes loading a lot faster when already found results.
+- realized issue
+    - it will break once i start searching for more pages, it will replace the first page.
 ## next update
 - add search terms to database, with page number and cards
 - if search was already found, then check if it was within the last 30 days, if not, then resend the request.
